@@ -57,3 +57,22 @@ function createListItem(text) {
 /**
  * Adds a new item to the list. It validates the input before adding the item.
  */
+
+function addItem() {
+    // Check if element has value
+   if (checkInputValue(itemInput)) { 
+       const itemValue = getValue();
+       const listAdd = createListItem(itemValue);
+       itemListUl.appendChild(listAdd);
+       itemInput.value = ''; // Clear input after adding an item
+   } 
+}
+
+/**
+* Deletes an item from the list. It is triggered by the delete button in each list item.
+* @param {Event} e - The event object.
+*/
+function deleteElement (e) {
+   const listDelete = e.target.closest("li")
+   listDelete.remove()
+}
