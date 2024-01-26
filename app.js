@@ -76,3 +76,28 @@ function deleteElement (e) {
    const listDelete = e.target.closest("li")
    listDelete.remove()
 }
+
+/**
+ * Handles click events on the shopping list wrapper. 
+ * It delegates the action based on whether an add or delete button was clicked.
+ * @param {Event} e - The event object.
+ */
+
+function handleUpdate(e) { 
+    const closestElement = e.target.closest('[data-add-item], [data-delete-item]');
+
+    if (!closestElement) return; // Early return if no relevant element is clicked
+
+    // Check the dataset properties
+    if (closestElement.dataset.addItem) {
+        addItem();
+    } else if (closestElement.dataset.deleteItem) {
+        deleteElement(e);
+    }
+}
+
+function handleInputAdd (e) {
+    if (checkInputValue(itemInput) && e.keyCode === 13 ) {
+        addItem();
+    }
+}
