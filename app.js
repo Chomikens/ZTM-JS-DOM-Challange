@@ -31,3 +31,29 @@ function getValue() {
     return itemInput.value;
 }
 
+/**
+ * Creates a list item (li) with the given text and a delete button.
+ * @param {String} text - Text to be included in the list item.
+ * @returns {HTMLElement} - The created list item (li element).
+ */
+
+function createListItem(text) {
+
+    // Create li element and assign it's value to params 
+    const listItem = document.createElement('li');
+    listItem.textContent = text; 
+
+    // Create button element and append it to li
+    const deleteButton = document.createElement('button');
+
+    //Use attributes instead of classes to be more specyfic
+    deleteButton.textContent = 'Delete';
+    deleteButton.dataset.deleteItem = 'true'; 
+
+    listItem.appendChild(deleteButton);
+    return listItem;
+}
+
+/**
+ * Adds a new item to the list. It validates the input before adding the item.
+ */
