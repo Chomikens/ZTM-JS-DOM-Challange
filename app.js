@@ -101,3 +101,8 @@ function handleInputAdd (e) {
         addItem();
     }
 }
+
+
+// Adds an event listener to the shopping list wrapper to handle click events.
+shoppingListWrapper.addEventListener("click", handleUpdate)
+itemInput.addEventListener("keyup", handleInputAdd)
